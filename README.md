@@ -1,7 +1,6 @@
-# README
-
 ##### Задание на должность Ruby-разработчика
 Необходимо написать сервис по сжатию изображений.
+
 ##### Логика работы сервиса
 - Пользователь загружает изображение;
 - Изображение помещается в очередь на сжатие;
@@ -50,31 +49,6 @@ $ git clone git@github.com:Esgeri/artec3d-test-app-image-compressor.git
 
 ```
 $ cp config/database.yml.example config/database.yml
-```
-> development:
-      adapter: postgresql
-      encoding: unicode
-      database: artec3d_image_compressor_development
-      pool: 5
-      host: localhost
-      username: postgres
-      password: ''
-
-> test:
-      adapter: postgresql
-      encoding: unicode
-      database: artec3d_image_compressor_test
-      pool: 5
-      username: postgres
-      password: ''
-
-> staging:
-    url: <%= ENV['DATABASE_URL'] %>
-
-> production:
-    url: <%= ENV['DATABASE_URL'] %>
-
-```
 $ bundle install
 $ rails db:create
 $ rails db:migrate
