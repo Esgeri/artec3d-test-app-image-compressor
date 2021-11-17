@@ -3,6 +3,7 @@ class ImagesController < ApplicationController
     @image = Image.new(image_params)
 
     if @image.save
+      ImageCompressorWorker.perform_async(@image.id)
       render json: { message: 'The image file is successfully uploaded!' }, status: :ok
     else
       render json: { message: @image.errors }, status: :unprocessable_entity
