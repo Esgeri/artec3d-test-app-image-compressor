@@ -18,6 +18,9 @@
 !/log/.keep
 !/tmp/.keep
 
+/public
+/public/uploads/
+
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/
