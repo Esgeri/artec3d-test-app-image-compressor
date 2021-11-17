@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    Message:<br>
+    ------------
+    <h2>Image is successfully compressed!</h2>
+    <p><%= link_to("Download compressed image", "http://localhost:3000/images/#{@image.uuid}/download") %></p>
+  </body>
+</html>

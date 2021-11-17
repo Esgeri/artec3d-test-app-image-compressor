@@ -15,8 +15,10 @@ class ImageCompressorService < ApplicationService
     current_signature = loaded_image.signature
 
     if previous_signature != current_signature
+      CompressedImageMailer.image_compressed(@image).deliver_now
       puts 'Image is successfully compressed!'
     else
+      CompressedImageMailer.image_not_compressed(@image).deliver_now
       puts 'Image is not compressed!'
     end
   end

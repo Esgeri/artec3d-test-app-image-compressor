@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
 
   def download
     @image = Image.find_by_uuid(params[:uuid])
-    render json: @image.as_json(only: [:uuid, :email, :image_file])
+    send_file "#{Rails.root}/public#{@image.image_file.url}", type: 'image/jpg', disposition: 'attachment'
   end
 
   private
