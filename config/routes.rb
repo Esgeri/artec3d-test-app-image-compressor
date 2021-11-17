@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   post 'images/compress', to: 'images#compress'
+  get 'images/:uuid/download', to: 'images#download'
 end

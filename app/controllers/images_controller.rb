@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   def compress
-    @image = Image.new(image_params)
+    @image = Image.new(image_params.merge(uuid: SecureRandom.uuid))
 
     if @image.save
       ImageCompressorWorker.perform_async(@image.id)
@@ -8,6 +8,11 @@ class ImagesController < ApplicationController
     else
       render json: { message: @image.errors }, status: :unprocessable_entity
     end
+  end
+
+  def download
+    @image = Image.find_by_uuid(params[:uuid])
+    render json: @image.as_json(only: [:uuid, :email, :image_file])
   end
 
   private
