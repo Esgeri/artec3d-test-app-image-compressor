@@ -5,6 +5,6 @@ class CompressedImageMailer < ApplicationMailer
   end
 
   def image_not_compressed(image)
-    mail(to: @image.email, subject: 'Image compression.')
+    mail(to: image.email, subject: 'Image compression.')
   end
 end
